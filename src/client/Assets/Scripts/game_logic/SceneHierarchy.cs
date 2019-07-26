@@ -19,5 +19,7 @@ public class SceneHierarchy : MonoBehaviour
     public static readonly string pathSinglePlayerScene = "/single_player_scene";
     public static readonly string pathLevelLogic = "/single_player_scene/level_logic";
     public static readonly string pathLevelAssets = "/single_player_scene/level";
+
+    public static readonly string pathUiCameraLevel = "";
 }
 

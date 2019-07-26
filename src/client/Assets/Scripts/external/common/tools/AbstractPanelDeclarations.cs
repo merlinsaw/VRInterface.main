@@ -18,21 +18,21 @@ public abstract class AbstractPanelDeclarations : MonoBehaviour //: NestedContro
 
 
   //protected UIPanel GUIPanel { get; private set; }
-  //protected static FSMSystem FsmSystem { get; private set; }
+  protected static FSMSystem FsmSystem { get; private set; }
   private bool AutoGUISetActive { get; set; }
-  //public AbstractFSMState State { get; protected set; } //Holds either the state that is currently active where the panel is registered in, or the last one registered.
-  //protected List<AbstractFSMState> States { get; set; } //Holds all states the panel is registered in.
- // protected float TimeInState
- // {
-	//get
-	//{
-	//  if (State != null)
-	//  {
-	//	return (State.TimeInState);
-	//  }
-	//  return (0);
-	//}
- // }
+  public AbstractFSMState State { get; protected set; } //Holds either the state that is currently active where the panel is registered in, or the last one registered.
+  protected List<AbstractFSMState> States { get; set; } //Holds all states the panel is registered in.
+  protected float TimeInState
+  {
+	get
+	{
+	  if (State != null)
+	  {
+		return (State.TimeInState);
+	  }
+	  return (0);
+	}
+  }
 
   /// <summary>
   /// Members for forwarding GUI button events.
@@ -70,42 +70,42 @@ public abstract class AbstractPanelDeclarations : MonoBehaviour //: NestedContro
 	OnGUIButton(sender);
   }
 
- // public void PanelInitialize(FSMSystem fsmSystem, bool autoGUISetActive, AbstractFSMState state)
- // {
-	//AutoGUISetActive = autoGUISetActive;
-	//if (FsmSystem != null)
-	//{
-	//  if (FsmSystem != fsmSystem)
-	//  {
-	//	log.Error(Logger.User.Msaw, "Trying to register panel in more than one states that are in different FsmSystems. This is currently not tested and shouldn't be done.");
-	//  }
-	//}
-	//FsmSystem = fsmSystem;
-	//if (States == null)
-	//{
-	//  States = new List<AbstractFSMState>();
-	//}
-	//States.Add(state);
-	//State = state;
-	//GUIPanel = this.GetComponent<UIPanel>();
-	//if (GUIPanel != null && AutoGUISetActive == true)
-	//{
-	//  SetPanelActive(false);
-	//}
-	//OnInitialize();
- // }
+	public void PanelInitialize(FSMSystem fsmSystem, bool autoGUISetActive, AbstractFSMState state)
+	{
+		AutoGUISetActive = autoGUISetActive;
+		if (FsmSystem != null)
+		{
+			if (FsmSystem != fsmSystem)
+			{
+				log.Error(_Logger.User.Msaw, "Trying to register panel in more than one states that are in different FsmSystems. This is currently not tested and shouldn't be done.");
+			}
+		}
+		FsmSystem = fsmSystem;
+		if (States == null)
+		{
+			States = new List<AbstractFSMState>();
+		}
+		States.Add(state);
+		State = state;
+		//GUIPanel = this.GetComponent<UIPanel>();
+		//if (GUIPanel != null && AutoGUISetActive == true)
+		//{
+		    SetPanelActive(false);
+		//}
+		OnInitialize();
+	}
 
- // public void PanelEnter(object onEnterParams)
- // {
-	//State = States.Find(item => item.StateName == FsmSystem.CurrentStateName); //Fetch the state the panel is registered in that is currently active.
-	//if (GUIPanel != null && AutoGUISetActive == true)
-	//{
-	//  SetPanelActive(true);
-	//}
-	//OnEnter(onEnterParams);
- // }
+	public void PanelEnter(object onEnterParams)
+	{
+		State = States.Find(item => item.StateName == FsmSystem.CurrentStateName); //Fetch the state the panel is registered in that is currently active.
+		//if (GUIPanel != null && AutoGUISetActive == true)
+		//{
+			SetPanelActive(true);
+		//}
+		OnEnter(onEnterParams);
+	}
 
-  public void PanelUpdate()
+	public void PanelUpdate()
   {
 	OnUpdate();
   }
@@ -115,16 +115,16 @@ public abstract class AbstractPanelDeclarations : MonoBehaviour //: NestedContro
 	OnLateUpdate();
   }
 
- // public void PanelLeave(bool deactivatePanel)
- // {
-	//if (GUIPanel != null && AutoGUISetActive == true)
-	//{
-	//  SetPanelActive(false);
-	//}
-	//OnLeave();
- // }
+	public void PanelLeave(bool deactivatePanel)
+	{
+		//if (GUIPanel != null && AutoGUISetActive == true)
+		//{
+			SetPanelActive(false);
+		//}
+		OnLeave();
+	}
 
-  public void PanelOnGUI()
+	public void PanelOnGUI()
   {
 	OnGUICustom();
   }
@@ -142,7 +142,7 @@ public abstract class AbstractPanelDeclarations : MonoBehaviour //: NestedContro
   //Helper method.
   public void ChangeState(string newStateName, object onEnterParam = null)
   {
-	//FsmSystem.ChangeState(newStateName, onEnterParam);
+	FsmSystem.ChangeState(newStateName, onEnterParam);
   }
 
   public void SetPanelActive(bool flag)

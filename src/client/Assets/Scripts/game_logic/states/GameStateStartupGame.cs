@@ -15,7 +15,7 @@ using Valve.VR;
 
 #endregion
 
-namespace Assets.Scripts.game_logic.states
+namespace GameStates
 {
     public class GameStateStartupGame : AbstractFSMState
     {
@@ -33,11 +33,38 @@ namespace Assets.Scripts.game_logic.states
             HasIntroFinished = true; //TODO: just until intro is implemented, then set correctly
         }
 
+
+
+        public GameStateStartupGame(string stateName, AbstractFSMStateController stateController, AbstractPanelDeclarations panelDeclarations) 
+            : base(stateName, stateController, panelDeclarations)
+        {
+        }
+
+
+        public GameStateStartupGame(string stateName, List<AbstractPanelDeclarations> panelDeclarations, AbstractFSMStateController stateController) 
+            : base(stateName, panelDeclarations, stateController)
+        {
+        }
+
+        public GameStateStartupGame(string stateName, List<AbstractPanelDeclarations> panelDeclarations) 
+            : base(stateName, panelDeclarations)
+        {
+        }
+
         protected override void OnInitialize()
         {
             PanelIntro = GetPanel<PanelIntro>();
             IsGameDataLoaded = false;
         }
 
+        protected override void OnEnter(object onEnterParams)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void OnLeave()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
