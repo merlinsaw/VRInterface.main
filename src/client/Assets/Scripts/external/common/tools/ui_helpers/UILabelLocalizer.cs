@@ -43,7 +43,7 @@ public class UILabelLocalizer : MonoBehaviour
         }
         else
         {
-            log.Warn(Logger.User.Msaw, "Cannot localize code '" + locaCode + "' on gameobject '" + name + "' because it doesn't contain a UILabel component.");
+            log.Warn(_Logger.User.Msaw, "Cannot localize code '" + locaCode + "' on gameobject '" + name + "' because it doesn't contain a UILabel component.");
         }
 
         Destroy(this); //Self destruct to save performance.

@@ -17,7 +17,7 @@ using System.Xml.Serialization;
 using System;
 using System.Text;
 #if !USE_MINIJSON_LEGACY
-using Newtonsoft.Json;
+using Valve.Newtonsoft.Json;
 #endif
 
 #endregion
