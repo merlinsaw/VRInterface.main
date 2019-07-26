@@ -11,22 +11,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 using UnityEngine;
-
+using Valve.VR;
 
 #endregion
 
-using shared_data_layer.Lobby;
-using shared_data_layer.SinglePlayer;
-
-
-namespace shared_data_layer
+namespace shared_data_layer.Lobby
 {
-    public class UserDTO : AbstractPlayerDTO, IEnemy
+    public class UserLobby : MonoBehaviour
     {
-    
-        public UserSinglePlayerProgressDTO UserSinglePlayerProgress { get; set; }
 
-        public UserLobby UserLobby { get; set; }
-      
+        /// <summary>
+        /// The Level id of the level the user is currently playing
+        /// </summary>
+        public string CurrentLevelId { get; set; }
+
     }
 }

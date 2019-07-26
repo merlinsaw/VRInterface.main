@@ -26,13 +26,13 @@ namespace shared_data_layer
 	public string PlayerId { get; set; }
 	public string Name { get; set; }
 	public int NrTrophies { get; set; }
-	//public UserEquipmentDTO UserEquipment { get; set; }
+	public UserEquipmentDTO UserEquipment { get; set; }
 
 
 
 	public AbstractPlayerDTO()
 	{
-	  //UserEquipment = new UserEquipmentDTO();
+	  UserEquipment = new UserEquipmentDTO();
 	}
 
 
