@@ -42,9 +42,9 @@ namespace GameStates
         {
         }
 
-        public void ChangeStateToPurchaseWeapon(string itemId)
+        public void ChangeStateToStatistics(string itemId)
         {
-            ChangeState("GameStatePurchaseWeapon", itemId);
+            ChangeState("GameStateStatistics", itemId);
         }
 
     }

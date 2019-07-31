@@ -28,11 +28,11 @@ public class TennisRacketPrefabs : MonoBehaviour
         }
         else
         {
-            log.Warn(_Logger.User.Msaw, "No weapon prefab found for weapon with id " + racketId + ", returning default weapon prefab");
+            log.Warn(_Logger.User.Msaw, "No racket prefab found for racket with id " + racketId + ", returning default racket prefab");
 
             if (defaultRacketPrefab == null)
             {
-                log.Error(_Logger.User.Msaw, "No default weapon prefab found, returning null");
+                log.Error(_Logger.User.Msaw, "No default racket prefab found, returning null");
             }
             return defaultRacketPrefab;
         }

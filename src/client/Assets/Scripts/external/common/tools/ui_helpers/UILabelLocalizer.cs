@@ -18,8 +18,8 @@ public class UILabelLocalizer : MonoBehaviour
 
     public string locaCode = "";
 
-    public delegate void LabelLocalizerDelegate(UILabel label, string locaCode);
-    public static event LabelLocalizerDelegate OnAddLabelToAutoLocaList;
+    //public delegate void LabelLocalizerDelegate(UILabel label, string locaCode);
+    //public static event LabelLocalizerDelegate OnAddLabelToAutoLocaList;
 
     public void Awake()
     {
@@ -28,7 +28,7 @@ public class UILabelLocalizer : MonoBehaviour
         {
             log.Warn(_Logger.User.Msaw, "The locaCode starts or ends with \". Make sure that this is not a copy&paste error.");
         }
-
+        /*
         UILabel label = this.GetComponent<UILabel>();
         if (label != null)
         {
@@ -47,5 +47,7 @@ public class UILabelLocalizer : MonoBehaviour
         }
 
         Destroy(this); //Self destruct to save performance.
+    */
     }
+
 }

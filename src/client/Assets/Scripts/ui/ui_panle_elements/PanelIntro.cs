@@ -22,7 +22,7 @@ public class PanelIntro : AbstractPanelDeclarations
 
     private GameController GameController { get; set; }
 
-    public UILabel labelVersionInfo;
+    //public UILabel labelVersionInfo;
 
     protected override void OnInitialize()
     {
@@ -31,9 +31,9 @@ public class PanelIntro : AbstractPanelDeclarations
 
     protected override void OnEnter(object onEnterParams)
     {
-        NGUITools.SetActive(buttonSkip, false);
-        string version = "Version: " + GameGlobals.FullAppVersion;
-        labelVersionInfo.text = version;
+        //NGUITools.SetActive(buttonSkip, false);
+        //string version = "Version: " + GameGlobals.FullAppVersion;
+        //labelVersionInfo.text = version;
     }
 
     protected override void OnUpdate()
@@ -42,7 +42,7 @@ public class PanelIntro : AbstractPanelDeclarations
 
     public void ActivateSkipButton()
     {
-        NGUITools.SetActive(buttonSkip, true);
+        //NGUITools.SetActive(buttonSkip, true);
     }
 
     public void OnButtonSkip()

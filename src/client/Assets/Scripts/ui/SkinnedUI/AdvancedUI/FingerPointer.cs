@@ -35,9 +35,9 @@ namespace AdvancedUI
         public GameObject MainMenu;
 
 
-        public void _popo() {
+        public void _touchButton() {
 
-            Debug.Log("popo ++++++++++++++++++++++++++++++++++++");
+            Debug.Log("_touchButton ++++++++++++++++++++++++++++++++++++");
         }
 
 

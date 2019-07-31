@@ -137,9 +137,10 @@ public abstract class AbstractGameController<T> : MonoBehaviour where T : class
     {
         Loca.SupportedLanguages = supportedLanguages;
         Loca.CurrentLanguage = systemLanguage;
-        UILabelLocalizer.OnAddLabelToAutoLocaList += OnAddLabelToAutoLocaList;
+        //UILabelLocalizer.OnAddLabelToAutoLocaList += OnAddLabelToAutoLocaList;
     }
 
+    /*
     private void OnAddLabelToAutoLocaList(UILabel label, string locaCode)
     {
 
@@ -147,7 +148,7 @@ public abstract class AbstractGameController<T> : MonoBehaviour where T : class
         // translate directly, no language switching supported anyway
         label.text = Loca.Get(locaCode);
     }
-
+    */
     public void ChangeState(string stateName, object onEnterParams = null)
     {
         FsmSystem.ChangeState(stateName, onEnterParams);
